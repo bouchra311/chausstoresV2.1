@@ -1,0 +1,10 @@
+nav, section {
+	display: inline-block;
+	width: 30%;
+}
+nav p, a {
+	display: block;
+}
+section p {
+	font-weight: bold;
+}
