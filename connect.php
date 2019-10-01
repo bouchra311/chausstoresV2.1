@@ -2,7 +2,7 @@
 
 
 
-$conn = mysqli_connect('164.132.110.233', 'simplon', 'xCIwyTKo3)?(31;*');
+$conn = mysqli_connect();
 //se connecter à son compte mysql ("localhost","utilisateur_sql","mot de passe")
 
 

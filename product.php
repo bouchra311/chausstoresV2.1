@@ -1,7 +1,7 @@
 <?php
 //require_once "connect.php";
 require_once "connect2.php";
-//require_once "bdd.php";
+
 
  ?>
 <!DOCTYPE html>
