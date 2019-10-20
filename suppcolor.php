@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once "connect2.php";
@@ -9,7 +8,7 @@ require_once "connect2.php";
 
   <head>
     <meta charset="utf-8">
-    <title>supprimmer un produit</title>
+    <title>supprimmer une couleur</title>
   </head>
   <body>
     <div class="">
@@ -24,15 +23,15 @@ require_once "connect2.php";
 </html>
 <?php
 if(isset($_POST["non"])){
-header("location: gestion.php");
+header("location: color.php");
 
 };
 
 if (isset($_POST["oui"])) {
-  $idp= intval($_GET['id']);
-  $reqpr="DELETE FROM product WHERE id = '$idp'";
-  mysqli_query($conn,$reqpr);
-header("location: gestion.php");
+  $idc= intval($_GET['id']);
+  $reqcl="DELETE FROM color WHERE id = '$idc'";
+  mysqli_query($conn,$reqcl);
+header("location: color.php");
 }
 
 ?>

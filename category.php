@@ -1,7 +1,8 @@
 <?php
-//require_once "connect.php";
+session_start();
+
 require_once "connect.php";
-//require_once "bdd.php";
+
 
  ?>
 <!DOCTYPE html>

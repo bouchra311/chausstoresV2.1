@@ -1,7 +1,7 @@
 <?php
-require_once "connect.php";
-//require_once "connect2.php";
 
+require_once "connect2.php";
+session_start();
  ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
@@ -17,7 +17,16 @@ require_once "connect.php";
     $nom = htmlspecialchars($_POST['ajout']);
     $sql = "INSERT INTO color (name) VALUE('$nom')";
     mysqli_query($conn,$sql);
+
 }?>/>
+
+<?php
+if(!empty($_GET['success']) AND $_GET['success']==1){
+?>
+    <p>ÇA MARCHE !</p>
+<?php
+}
+?>
     <input type="submit" name="ok" value="ok">
 
 
@@ -28,20 +37,25 @@ require_once "connect.php";
 
 <?php
 
-  $recolor="SELECT * FROM color ORDER BY id DESC";
+  $recolor="SELECT * FROM color ORDER BY id";
+
+
   $colorenvoi= mysqli_query($conn,$recolor);
 
   while($color= mysqli_fetch_assoc($colorenvoi)){
-    $idcolor= $color['id'];
-  echo("<div id='color'>".$color['name']."<form method='post'>
+    $idcolor= $color['name'];
+
+
+    echo("<div id='color'>".$color['name']."<form method='post'>
    <input type='text' name='form' placeholder='newname'>
    <input type='submit' name='modif".$idcolor."' value='modifier'>
    <input type='submit' name='supp".$idcolor."' value='supprimer'>
- </form></div>");
+   </form></div>");
+
 
 
     if(isset($_POST["supp".$idcolor])){
-    header("location:supp.php?id=".$idcolor);
+    header("location:suppcolor.php?id=".$idcolor);
 
   };
 
@@ -52,8 +66,8 @@ require_once "connect.php";
       mysqli_query($conn, $modifcolor);
       header("location:color.php");
     }
-
 }
+
 
 ?>
 

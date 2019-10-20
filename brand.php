@@ -1,14 +1,15 @@
 <?php
-//require_once "connect.php";
-require_once "connect2.php";
-//require_once "bdd.php";
+session_start();
+
+require_once "connect.php";
+
 
  ?>
 <!DOCTYPE html>
 <html lang="fr" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Les Marques</title>
   </head>
   <body>
 
@@ -43,7 +44,7 @@ $idbrand= $brand['id'];
 if(isset($_POST["supp".$idbrand])){
 header("location:suppbrand.php?id=".$idbrand);
 
-};
+}
 
 if(isset($_POST["modif".$idbrand])) {
   $postbrand = htmlspecialchars($_POST['form']);
@@ -51,27 +52,11 @@ if(isset($_POST["modif".$idbrand])) {
   WHERE id = '$idbrand'";
   mysqli_query($conn, $modifbrand);
   header("location:brand.php");
-}
-
-
-
+    }
 
  }
 
  ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 </body>
 </html>

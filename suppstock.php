@@ -1,4 +1,3 @@
-
 <?php
 session_start();
 require_once "connect2.php";
@@ -9,7 +8,7 @@ require_once "connect2.php";
 
   <head>
     <meta charset="utf-8">
-    <title>supprimmer un produit</title>
+    <title>Supprimmer un stock</title>
   </head>
   <body>
     <div class="">
@@ -22,6 +21,7 @@ require_once "connect2.php";
 
   </body>
 </html>
+
 <?php
 if(isset($_POST["non"])){
 header("location: gestion.php");
@@ -29,9 +29,9 @@ header("location: gestion.php");
 };
 
 if (isset($_POST["oui"])) {
-  $idp= intval($_GET['id']);
-  $reqpr="DELETE FROM product WHERE id = '$idp'";
-  mysqli_query($conn,$reqpr);
+  $ids= intval($_GET['id']);
+  $reqcl="DELETE FROM stock WHERE stock = '$ids'";
+  mysqli_query($conn,$reqcl);
 header("location: gestion.php");
 }
 
